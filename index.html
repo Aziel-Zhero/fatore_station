@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fatore • Technology Station</title>
+    <link rel="icon" href="img/favicon_fatore.png" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#DA5128",
+              secondary: "#4B0AD0",
+              accent: "#FFAD00",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Font Awesome (PHP Icon) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body
+    class="bg-secondary text-white font-sans"
+    style="font-family: 'Inter', sans-serif"
+  >
+    <!-- HEADER -->
+    <header class="relative bg-primary shadow-lg">
+      <div
+        class="absolute inset-0 pointer-events-none opacity-10 bg-[url('img/textura.svg')] bg-repeat bg-[length:200px_200px]"
+      ></div>
+
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+      >
+        <h1 class="text-xl font-bold tracking-wide">Fatore Station</h1>
+
+        <!-- MENU -->
+        <nav
+          class="flex flex-wrap gap-2 md:gap-4 justify-center md:justify-start"
+        >
+          <a
+            href="#home"
+            class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-accent transition"
+          >
+            <span>Home</span>
+          </a>
+
+          <a
+            href="src/sobre.html"
+            class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-accent transition"
+          >
+            <span>Sobre</span>
+          </a>
+
+          <a
+            href="#courses"
+            class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-accent transition"
+          >
+           <!--  <span>Cursos</span>
+          </a>
+
+            <a
+            href="#contact"
+            class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-accent transition"
+          >
+            <span>Contato</span>
+          </a> -->
+        </nav>
+
+        <!-- INFO -->
+        <div class="flex flex-col gap-2 text-right text-white/80 text-sm">
+          <p>
+            Aula Atual: <span id="current-class" class="font-semibold"></span>
+          </p>
+          <p>
+            Faltam:
+            <span id="remaining-classes" class="font-semibold"></span> aulas
+          </p>
+          <p>Turma: Sábado 8h às 10h</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- SCRIPT -->
+    <script>
+      const totalClasses = 104;
+      const currentClass = 20;
+      document.getElementById("current-class").textContent = currentClass;
+      document.getElementById("remaining-classes").textContent =
+        totalClasses - currentClass;
+    </script>
+
+    <!-- MAIN -->
+    <main class="py-10 px-6">
+      <section class="max-w-7xl mx-auto">
+        <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <!-- CARD 01 -->
+          <a
+            href="arch/Aula8.pptx"
+            download
+            class="card group bg-white/5 backdrop-blur rounded-xl border border-white/10 overflow-hidden shadow-lg transition transform hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <!-- IMAGEM -->
+            <div class="h-40 w-full overflow-hidden">
+              <img
+                src="img/prof.png"
+                alt="Aula 8 PHP"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
+            <!-- TEXTO -->
+            <div class="p-4 text-center">
+              <p class="text-sm text-white/70">Aula 8 • Download</p>
+            </div>
+
+            <!-- BOTÃO -->
+            <div
+              class="bg-primary group-hover:bg-accent group-hover:text-black transition-colors text-center py-2 font-semibold text-sm"
+            >
+              Download
+            </div>
+          </a>
+
+          <!-- CARD 02 -->
+          <a
+            href="arch/RapidTyping_Setup_5.5.exe"
+            download
+            class="card group bg-white/5 backdrop-blur rounded-xl border border-white/10 overflow-hidden shadow-lg transition transform hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <!-- IMAGEM -->
+            <div class="h-40 w-full overflow-hidden">
+              <img
+                src="img/rt.png"
+                alt="Rapid Typing"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
+            <!-- TEXTO -->
+            <div class="p-4 text-center">
+              <p class="text-sm text-white/70">Rapid Typing • Ferramenta</p>
+            </div>
+
+            <!-- BOTÃO -->
+            <div
+              class="bg-primary group-hover:bg-accent group-hover:text-black transition-colors text-center py-2 font-semibold text-sm"
+            >
+              Download
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary/90 border-t border-white/10 mt-16">
+      <div
+        class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/80"
+      >
+        <p>&copy; 2026 Aziel - CEO Flortune • Todos os direitos reservados</p>
+        <p class="mt-1">Versão 0.3.1</p>
+      </div>
+    </footer>
+
+    <!-- GSAP -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script>
+      gsap.from(".card", {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: "power2.out",
+      });
+    </script>
+  </body>
+</html>
