@@ -1,29 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobre • Aziel A.</title>
-    <link rel="icon" href="../img/favicon_fatore.png" type="image/x-icon" />
 
-    <!-- Google Font -->
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
 
-    <!-- TailwindCSS -->
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
+          fontFamily: { inter: ["Inter", "sans-serif"] },
           extend: {
             colors: {
               primary: "#DA5128",
               secondary: "#4B0AD0",
               accent: "#FFAD00",
+              card: "#1e1a3d",
             },
           },
         },
@@ -32,126 +33,119 @@
   </head>
 
   <body
-    class="bg-secondary text-white font-sans"
-    style="font-family: 'Inter', sans-serif"
+    class="min-h-screen bg-gradient-to-br from-secondary via-purple-900/60 to-black text-white font-inter"
   >
     <!-- HEADER -->
-    <header class="bg-primary shadow-lg">
-      <div class="max-w-7xl mx-auto px-6 py-6">
-        <h1 class="text-3xl font-bold">Sobre Aziel A.</h1>
-        <p class="text-white/80 mt-1">
-          Desenvolvedor Full Stack Jr. • Segurança da Informação • Automação
-          Inteligente
-        </p>
+    <header class="bg-primary/90 backdrop-blur border-b border-white/20">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src="../img/favicon_fatore.png"
+            alt="Fatore"
+            class="h-8 w-auto"
+          />
+          <h1
+            class="text-lg sm:text-xl font-black bg-gradient-to-r from-white to-accent bg-clip-text text-transparent"
+          >
+            Fatore Station
+          </h1>
+        </div>
+
+        <nav class="flex gap-2 text-sm">
+          <a href="../index.html" class="menu-link">Home</a>
+        </nav>
       </div>
     </header>
 
     <!-- MAIN -->
-    <main class="max-w-5xl mx-auto px-6 py-10 space-y-10">
-      <!-- BIO -->
-      <section class="bg-white/5 rounded-xl p-6 border border-white/10">
-        <h2 class="text-2xl font-semibold text-accent mb-4">
-          Perfil Profissional
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-8">
+      <!-- HERO -->
+      <section class="text-center">
+        <h2
+          class="text-4xl sm:text-5xl font-black bg-gradient-to-r from-white to-accent bg-clip-text text-transparent"
+        >
+          Aziel A.
         </h2>
+        <p class="mt-3 text-white/70 text-base sm:text-lg">
+          Desenvolvedor Full Stack Jr. • Segurança da Informação • Automação
+          Inteligente
+        </p>
+      </section>
 
+      <!-- CARD -->
+      <section class="card">
+        <h3 class="section-title">Perfil Profissional</h3>
         <p class="text-white/80 leading-relaxed">
-          Aziel A. é <strong>Desenvolvedor Full Stack Jr.</strong> com foco
-          profissional atualizado para <strong>Purple Team</strong>,
-          <strong>Ética Hacking</strong> (com certificação
-          <strong>CEH Master</strong>),
-          <strong>Computação Forense e Perícia Digital</strong>, além de
+          Desenvolvedor Full Stack Jr. com foco em <strong>Purple Team</strong>,
+          <strong>Ethical Hacking</strong> (CEH Master),
+          <strong>Computação Forense</strong> e
           <strong>Blockchain & Smart Contracts</strong>.
         </p>
-
         <p class="text-white/80 leading-relaxed mt-4">
-          Atua integrando desenvolvimento de software, segurança da informação e
-          automação de processos, mantendo uma abordagem prática, orientada a
-          resultados e alinhada às boas práticas de segurança, escalabilidade e
-          sustentabilidade tecnológica.
+          Atua integrando desenvolvimento, segurança da informação e automação,
+          com abordagem prática, segura e orientada a resultados.
         </p>
       </section>
 
-      <!-- AUTOMAÇÃO & PROJETOS -->
-      <section class="bg-white/5 rounded-xl p-6 border border-white/10">
-        <h2 class="text-2xl font-semibold text-accent mb-4">
-          Automação & Projetos Estratégicos
-        </h2>
-
+      <section class="card">
+        <h3 class="section-title">Automação & Projetos</h3>
         <p class="text-white/80 leading-relaxed">
-          Possui especialização em
-          <strong>automação de workflows inteligentes</strong> utilizando
-          <strong>N8N</strong> e <strong>Make</strong>, com foco em redução de
-          custos operacionais, aumento de produtividade e integração de sistemas
-          complexos.
+          Especialista em automação de workflows com <strong>N8N</strong> e
+          <strong>Make</strong>, focado em redução de custos e aumento de
+          produtividade.
         </p>
-
         <p class="text-white/80 leading-relaxed mt-4">
-          Destaca-se pela atuação em projetos nas áreas de
-          <strong>saúde</strong>, <strong>finanças</strong> e
-          <strong>e-commerce</strong>. Um dos principais cases foi o
-          desenvolvimento e automação de um
-          <strong>sistema de gestão hospitalar</strong> que proporcionou
-          <strong>80% de aumento de eficiência</strong> na
-          <strong>Unimed Pindamonhangaba</strong>, em operação desde outubro de
-          2024.
+          Destaque para o desenvolvimento de um
+          <strong>sistema de gestão hospitalar</strong> com
+          <strong>80% de ganho operacional</strong> na
+          <strong>Unimed Pindamonhangaba</strong>.
         </p>
       </section>
 
-      <!-- EXPERIÊNCIAS -->
-      <section class="bg-white/5 rounded-xl p-6 border border-white/10">
-        <h2 class="text-2xl font-semibold text-accent mb-4">
-          Experiências Anteriores
-        </h2>
-
-        <ul class="list-disc list-inside text-white/80 space-y-2">
+      <section class="card">
+        <h3 class="section-title">Experiências</h3>
+        <ul class="list-disc list-inside space-y-2 text-white/80">
           <li>
-            <strong>Professor de Informática</strong> — aulas de InDesign,
-            criação de jogos, projetos visuais e introdução à tecnologia.
+            <strong>Professor de Informática</strong> — design, jogos e
+            fundamentos tecnológicos.
           </li>
           <li>
-            <strong>Analista em Laboratório de Análises Clínicas</strong> —
-            atuação com foco em precisão, responsabilidade, colaboração em
-            equipe e inovação sustentável.
+            <strong>Analista em Laboratório Clínico</strong> — precisão,
+            responsabilidade e inovação.
           </li>
         </ul>
       </section>
 
-      <!-- VALORES -->
-      <section class="bg-white/5 rounded-xl p-6 border border-white/10">
-        <h2 class="text-2xl font-semibold text-accent mb-4">
-          Valores e Atuação
-        </h2>
-
+      <section class="card">
+        <h3 class="section-title">Valores</h3>
         <p class="text-white/80 leading-relaxed">
-          Aziel valoriza <strong>colaboração</strong>,
-          <strong>segurança</strong>, <strong>inovação sustentável</strong> e
-          desenvolvimento de soluções tecnológicas que gerem impacto real. Atua
-          com versionamento de código e projetos abertos, utilizando o GitHub
-          como base de compartilhamento técnico.
+          Atua com foco em <strong>segurança</strong>,
+          <strong>colaboração</strong>, <strong>inovação sustentável</strong> e
+          impacto real através da tecnologia.
         </p>
       </section>
 
-      <!-- LINKS -->
-      <section class="bg-white/5 rounded-xl p-6 border border-white/10">
-        <h2 class="text-2xl font-semibold text-accent mb-4">Conecte-se</h2>
-
+      <section class="card">
+        <h3 class="section-title">Conecte-se</h3>
         <ul class="space-y-2 text-white/80">
           <li>
-            🔗 LinkedIn:
+            🔗
             <a
               href="https://www.linkedin.com/in/azielz/"
               target="_blank"
-              class="text-accent hover:underline"
+              class="link"
             >
               linkedin.com/in/azielz
             </a>
           </li>
           <li>
-            💻 GitHub:
+            💻
             <a
               href="https://github.com/Aziel-Zhero"
               target="_blank"
-              class="text-accent hover:underline"
+              class="link"
             >
               github.com/Aziel-Zhero
             </a>
@@ -161,13 +155,31 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-primary/90 border-t border-white/10 mt-16">
+    <footer class="bg-primary/90 border-t border-white/20 mt-12">
       <div
-        class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/80"
+        class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/70"
       >
-        <p>&copy; 2026 Aziel A. • Todos os direitos reservados</p>
-        <p class="mt-1">Fatore Station</p>
+        © 2026 Aziel A. • Fatore Station
       </div>
     </footer>
+
+    <!-- COMPONENT STYLES -->
+    <style>
+      .menu-link {
+        @apply px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition;
+      }
+      .menu-link.active {
+        @apply bg-white/30;
+      }
+      .card {
+        @apply bg-card/80 backdrop-blur border border-white/10 rounded-2xl p-6;
+      }
+      .section-title {
+        @apply text-xl font-bold text-accent mb-3;
+      }
+      .link {
+        @apply text-accent hover:underline;
+      }
+    </style>
   </body>
 </html>

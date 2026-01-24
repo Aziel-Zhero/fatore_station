@@ -1,199 +1,208 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fatore • Technology Station</title>
-    <link rel="icon" href="img/favicon_fatore.png" type="image/x-icon" />
 
-    <!-- Google Fonts -->
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
 
-    <!-- TailwindCSS -->
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
+          fontFamily: { inter: ["Inter", "sans-serif"] },
           extend: {
             colors: {
               primary: "#DA5128",
               secondary: "#4B0AD0",
               accent: "#FFAD00",
+              card: "#1e1a3d",
             },
           },
         },
       };
     </script>
 
-    <!-- Font Awesome (PHP Icon) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <!-- GSAP -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
   </head>
 
   <body
-    class="bg-secondary text-white font-sans"
-    style="font-family: 'Inter', sans-serif"
+    class="h-screen overflow-hidden bg-gradient-to-br from-secondary via-purple-900/60 to-black text-white font-inter"
   >
     <!-- HEADER -->
-    <header class="relative bg-primary shadow-lg">
+    <header
+      class="bg-primary/90 backdrop-blur border-b border-white/20 relative z-50"
+    >
       <div
-        class="absolute inset-0 pointer-events-none opacity-10 bg-[url('img/textura.svg')] bg-repeat bg-[length:200px_200px]"
-      ></div>
-
-      <div
-        class="relative z-10 max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between"
       >
-        <h1 class="text-xl font-bold tracking-wide">Fatore Station</h1>
-
-        <!-- MENU -->
-        <nav
-          class="flex flex-wrap gap-2 md:gap-4 justify-center md:justify-start"
-        >
-          <a
-            href="#home"
-            class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-accent transition"
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img
+            src="img/favicon_fatore.png"
+            alt="Fatore"
+            class="h-8 w-auto object-contain"
+          />
+          <h1
+            class="text-lg sm:text-xl font-black bg-gradient-to-r from-white to-accent bg-clip-text text-transparent"
           >
-            <span>Home</span>
-          </a>
+            Fatore Station
+          </h1>
+        </div>
 
-          <a
-            href="src/sobre.html"
-            class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-accent transition"
-          >
-            <span>Sobre</span>
-          </a>
-
-          <a
-            href="#courses"
-            class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-accent transition"
-          >
-           <!--  <span>Cursos</span>
-          </a>
-
-            <a
-            href="#contact"
-            class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-accent transition"
-          >
-            <span>Contato</span>
-          </a> -->
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex gap-2 text-sm">
+          <a href="index.html" class="menu-link active">Home</a>
+          <a href="src/sobre.html" class="menu-link">Sobre</a>
         </nav>
 
-        <!-- INFO -->
-        <div class="flex flex-col gap-2 text-right text-white/80 text-sm">
-          <p>
-            Aula Atual: <span id="current-class" class="font-semibold"></span>
+        <!-- Info -->
+        <div class="hidden md:block text-xs text-right leading-tight">
+          <p>Próxima aula</p>
+          <p class="text-accent font-bold">
+            Aula <span id="current-class"></span>
           </p>
-          <p>
-            Faltam:
-            <span id="remaining-classes" class="font-semibold"></span> aulas
-          </p>
-          <p>Turma: Sábado 8h às 10h</p>
         </div>
+
+        <!-- Mobile Button -->
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded-lg hover:bg-white/10"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden absolute top-full left-0 w-full bg-primary/95 border-t border-white/20"
+      >
+        <nav class="flex flex-col p-4 gap-2 text-sm">
+          <a href="index.html" class="menu-link">Home</a>
+          <a href="src/sobre.index" class="menu-link">Sobre</a>
+        </nav>
       </div>
     </header>
 
-    <!-- SCRIPT -->
-    <script>
-      const totalClasses = 104;
-      const currentClass = 20;
-      document.getElementById("current-class").textContent = currentClass;
-      document.getElementById("remaining-classes").textContent =
-        totalClasses - currentClass;
-    </script>
-
     <!-- MAIN -->
-    <main class="py-10 px-6">
-      <section class="max-w-7xl mx-auto">
-        <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <!-- CARD 01 -->
-          <a
-            href="arch/Aula8.pptx"
-            download
-            class="card group bg-white/5 backdrop-blur rounded-xl border border-white/10 overflow-hidden shadow-lg transition transform hover:-translate-y-1 hover:shadow-2xl"
-          >
-            <!-- IMAGEM -->
-            <div class="h-40 w-full overflow-hidden">
-              <img
-                src="img/prof.png"
-                alt="Aula 8 PHP"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 h-[calc(100vh-110px)] flex items-center"
+    >
+      <section
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
+      >
+        <!-- INFORMÁTICA (2 DOWNLOADS) -->
+        <div onclick="downloadInformatica()" class="card group cursor-pointer">
+          <div class="card-icon from-primary to-accent">🖥️</div>
+          <h3 class="card-title">Informática</h3>
+          <p class="card-text">Material + Script</p>
+          <span class="card-btn">Download</span>
+        </div>
 
-            <!-- TEXTO -->
-            <div class="p-4 text-center">
-              <p class="text-sm text-white/70">Aula 8 • Download</p>
-            </div>
+        <!-- RAPID TYPING -->
+        <a href="arch/RapidTyping_Setup_5.5.exe" download class="card group">
+          <div class="card-icon from-accent to-secondary">⚡</div>
+          <h3 class="card-title">Rapid Typing</h3>
+          <p class="card-text">Ferramenta de Digitação</p>
+          <span class="card-btn">Download</span>
+        </a>
 
-            <!-- BOTÃO -->
-            <div
-              class="bg-primary group-hover:bg-accent group-hover:text-black transition-colors text-center py-2 font-semibold text-sm"
-            >
-              Download
-            </div>
-          </a>
-
-          <!-- CARD 02 -->
-          <a
-            href="arch/RapidTyping_Setup_5.5.exe"
-            download
-            class="card group bg-white/5 backdrop-blur rounded-xl border border-white/10 overflow-hidden shadow-lg transition transform hover:-translate-y-1 hover:shadow-2xl"
-          >
-            <!-- IMAGEM -->
-            <div class="h-40 w-full overflow-hidden">
-              <img
-                src="img/rt.png"
-                alt="Rapid Typing"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-
-            <!-- TEXTO -->
-            <div class="p-4 text-center">
-              <p class="text-sm text-white/70">Rapid Typing • Ferramenta</p>
-            </div>
-
-            <!-- BOTÃO -->
-            <div
-              class="bg-primary group-hover:bg-accent group-hover:text-black transition-colors text-center py-2 font-semibold text-sm"
-            >
-              Download
-            </div>
-          </a>
+        <!-- PLACEHOLDER -->
+        <div class="card muted">
+          <div class="card-icon from-white/20 to-white/10">➕</div>
+          <h3 class="card-title">Mais materiais</h3>
+          <p class="card-text">Em breve</p>
         </div>
       </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-primary/90 border-t border-white/10 mt-16">
-      <div
-        class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/80"
-      >
-        <p>&copy; 2026 Aziel - CEO Flortune • Todos os direitos reservados</p>
-        <p class="mt-1">Versão 0.3.1</p>
-      </div>
+    <footer class="text-center text-xs py-3 text-white/60">
+      © 2026 Aziel • Fatore Station v0.4.2
     </footer>
 
-    <!-- GSAP -->
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <!-- SCRIPTS -->
     <script>
+      /* ===== LÓGICA DA AULA (SÁBADO) ===== */
+      const LAST_DONE = 21;
+      const today = new Date();
+      const isSaturday = today.getDay() === 6;
+      const currentClass = isSaturday ? LAST_DONE + 1 : LAST_DONE;
+      document.getElementById("current-class").textContent = currentClass;
+
+      /* ===== MENU MOBILE ===== */
+      const btn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      btn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      /* ===== DOWNLOAD DUPLO ===== */
+      function downloadInformatica() {
+        const files = ["arch/informatica.pptx", "arch/fecha_ppt.bat"];
+
+        files.forEach((file, index) => {
+          setTimeout(() => {
+            const a = document.createElement("a");
+            a.href = file;
+            a.download = "";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          }, index * 300);
+        });
+      }
+
+      /* ===== ANIMAÇÃO ===== */
       gsap.from(".card", {
         opacity: 0,
-        y: 30,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: "power2.out",
+        y: 20,
+        stagger: 0.15,
+        duration: 0.5,
       });
     </script>
+
+    <!-- STYLES -->
+    <style>
+      .menu-link {
+        @apply px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition cursor-pointer;
+      }
+      .menu-link.active {
+        @apply bg-white/30;
+      }
+      .card {
+        @apply bg-card/80 border border-white/10 rounded-2xl p-6
+           flex flex-col items-center text-center
+           hover:-translate-y-1 transition;
+      }
+      .card.muted {
+        @apply text-white/40;
+      }
+      .card-icon {
+        @apply w-20 h-20 rounded-2xl flex items-center justify-center
+           text-3xl mb-4 bg-gradient-to-br;
+      }
+      .card-title {
+        @apply font-bold text-xl;
+      }
+      .card-text {
+        @apply text-white/70;
+      }
+      .card-btn {
+        @apply mt-4 opacity-0 group-hover:opacity-100
+           bg-accent text-black px-4 py-2
+           rounded-xl text-sm transition;
+      }
+    </style>
   </body>
 </html>
